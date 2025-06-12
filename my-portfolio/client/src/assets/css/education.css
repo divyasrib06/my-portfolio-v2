@@ -1,0 +1,149 @@
+/*--------------------------------------------------------------
+# Education Section
+--------------------------------------------------------------*/
+
+.education-section {
+  padding: 80px 20px;
+  margin-left: 170px;
+  text-align: center; /* Center title */
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--heading-color);
+  margin-bottom: 40px;
+  text-align: center; /* Ensure it's centered */
+}
+
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-left: 30px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 32%;
+  width: 4px;
+  height: 100%;
+  background: #ccc;
+}
+
+.entry {
+  display: flex;
+  margin-bottom: 40px;
+  align-items: flex-start;
+}
+
+.entry .title {
+  width: 30%;
+  text-align: right;
+  padding-right: 30px;
+  position: relative;
+}
+
+.entry .title::before {
+  position: absolute;
+  top: 8px;
+  right: -11px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: white;
+  border: 4px solid salmon;
+  z-index: 2;
+  transform: translateX(50%);
+}
+
+.entry .title h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.entry .title p {
+  margin: 0;
+  font-size: 16px;
+  color: var(--default-color);
+}
+
+.entry .body {
+  width: 70%;
+  padding-left: 30px;
+  text-align: left;
+}
+
+.entry .body p {
+  margin: 0 0 10px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--default-color);
+}
+
+.entry .body ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  color: #999;
+}
+
+.entry .body ul li::before {
+  content: "–";
+  margin-right: 6px;
+  color: #bbb;
+}
+
+/* -------------------------
+   Mobile Responsive Fixes
+------------------------- */
+@media (max-width: 768px) {
+  .education-section {
+    margin-left: 0;
+    padding: 60px 20px;
+  }
+
+  .timeline {
+    padding-left: 30px;
+  }
+
+  .timeline::before {
+    left: 130px; /* Keep bar on the left */
+    transform: none;
+  }
+
+  .entry {
+    flex-direction: row;        /* row layout like desktop */
+    align-items: flex-start;
+  }
+
+  .entry .title {
+    width: 30%;
+    text-align: right;
+    padding-right: 20px;
+    margin-bottom: 0;
+    position: relative;
+  }
+
+  .entry .title::before {
+    left: auto;
+    right: -11px;               /* keeps the dot aligned with the bar */
+    top: 6px;
+    transform: none;
+  }
+
+  .entry .body {
+    width: 70%;
+    padding-left: 20px;
+    text-align: left;
+  }
+
+  .entry .body p,
+  .entry .body ul {
+    text-align: left;
+  }
+}
