@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="footer-icons">
           <a href="https://github.com/divyasrib06" target="_blank" rel="noreferrer"><FaGithub /></a>
           <a href="https://www.linkedin.com/in/divya-sri-bevara/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
-          <a href="mailto:divyasribevara@yahoo.com"><FaEnvelope /></a>
+          <a href="mailto:divyasribevara8@gmail.com"><FaEnvelope /></a>
         </div>
       </div>
     </footer>

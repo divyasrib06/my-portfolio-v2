@@ -30,7 +30,7 @@ const Home = () => {
   <a href="https://www.linkedin.com/in/divya-sri-bevara/" target="_blank" rel="noopener noreferrer">
     <i className="bi bi-linkedin"></i>
   </a>
-  <a href="mailto:divyasribevara@yahoo.com">
+  <a href="mailto:divyasribevara8@gmail.com">
     <i className="bi bi-envelope-fill"></i>
   </a>
   <a href="tel:+19452680621">
