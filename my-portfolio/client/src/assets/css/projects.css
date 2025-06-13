@@ -1,0 +1,169 @@
+/*--------------------------------------------------------------
+# Projects Section
+--------------------------------------------------------------*/
+
+.projects-section {
+  padding: 40px 50px 100px 90px;
+  margin-left: 90px;
+}
+
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0px auto 30px auto;
+  color: var(--heading-color);
+  text-align: center;
+}
+
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+}
+
+/* Card Styling */
+.card {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease;
+  z-index: 1;
+}
+
+.card:hover .card__background {
+  transform: scale(1.1);
+}
+
+.card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.25rem;
+background: linear-gradient(to top, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0));
+
+  transform: translateY(40%);
+  transition: transform 0.4s ease;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.card:hover .card__content {
+  transform: translateY(0%);
+}
+
+.card__content--container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: space-between;
+  min-height: 120px;
+}
+
+.card__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.8rem;
+}
+
+.card__description {
+  line-height: 1.0;       /* consistent spacing */
+  font-size: 14px;
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .card__description {
+  opacity: 1;
+}
+
+.card__button {
+  align-self: flex-start;
+  padding: 0.5rem 1.2rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.card:hover .card__button {
+  opacity: 1;
+}
+
+/* 🛠️ Fix the text disappearing on hover */
+.card__button:hover {
+  background-color: var(--nav-hover-color);
+  color: #fff !important; /* Ensures text stays visible */
+}
+
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects-section {
+    margin-left: 0;
+    padding: 40px 20px;
+    text-align: center;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+   .card__button {
+    margin: 0 auto; /* centers the button */
+  }
+
+  .card {
+    height: 250px;
+  }
+
+  .card__title {
+    font-size: 17px;
+    text-align: center;
+  }
+
+  .card__description {
+    font-size: 13px;
+    text-align: center;
+  }
+}
+

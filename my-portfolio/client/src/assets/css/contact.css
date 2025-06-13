@@ -1,0 +1,107 @@
+.contact-section {
+  padding: 80px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fdfdfd;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 40px 30px;
+}
+
+.section-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  color: var(--heading-color);
+  margin-bottom: 30px;
+}
+
+.input-group {
+  position: relative;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.input-icon {
+  position: absolute;
+  top: 25px;
+  left: 15px;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 18px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 12px 15px 12px 45px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.input-group textarea {
+  padding-top: 14px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #003f8a;
+}
+
+/*📱 Mobile Responsive Fix */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 25px 15px;
+  }
+
+  .input-group {
+    margin-bottom: 20px;
+  }
+
+  .input-icon {
+    left: 12px;
+  }
+
+  .input-group input,
+  .input-group textarea {
+    padding-left: 42px;
+  }
+}
+.custom-swal-popup {
+  border-radius: 16px;
+  padding: 30px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.custom-swal-title {
+  font-size: 26px;
+  color: #333;
+}
+
+.custom-swal-text {
+  font-size: 18px;
+  color: #555;
+}
