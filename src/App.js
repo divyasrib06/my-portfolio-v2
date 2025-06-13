@@ -1,6 +1,6 @@
 // src/App.jsx
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import './assets/css/global.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -20,7 +20,7 @@ import Footer from './components/Footer';
 
 const App = () => {
   return (
-    <Router basename={process.env.PUBLIC_URL || '/portfolio'}>
+    <>
       <Navbar />
       <main className="main">
         <Routes>
@@ -43,7 +43,7 @@ const App = () => {
         </Routes>
       </main>
       <Footer />
-    </Router>
+    </>
   );
 };
 
