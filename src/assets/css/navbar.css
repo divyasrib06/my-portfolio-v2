@@ -27,6 +27,7 @@
   .header.header-show {
     left: 0;
   }
+ 
 }
 
 .navmenu {
@@ -52,11 +53,10 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 20px;
+  width: 40px;
   height: 40px;
   padding: 0 12px;
-background: rgba(39, 40, 41, 0.08); 
-
+  background: rgba(39, 40, 41, 0.08);
   border-radius: 40px;
   color: var(--nav-color);
   font-family: var(--nav-font);
@@ -70,6 +70,10 @@ background: rgba(39, 40, 41, 0.08);
 .navmenu .navicon {
   font-size: 18px;
   flex-shrink: 0;
+  color: var(--nav-color);
+  transition: color 0.3s ease;
+  opacity: 1;
+  visibility: visible;
 }
 
 .navmenu a span {
@@ -79,13 +83,20 @@ background: rgba(39, 40, 41, 0.08);
   transition: opacity 0.3s ease;
 }
 
-.navmenu a:hover {
-  width: 120px;
+.navmenu a:hover,
+.navmenu a.active {
+  width: 110px;
   background: var(--nav-hover-color);
   color: var(--contrast-color);
 }
 
-.navmenu a:hover span {
+.navmenu a:hover .navicon,
+.navmenu a.active .navicon {
+  color: var(--contrast-color);
+}
+
+.navmenu a:hover span,
+.navmenu a.active span {
   opacity: 1;
   visibility: visible;
 }
@@ -96,10 +107,90 @@ background: rgba(39, 40, 41, 0.08);
   background: var(--nav-hover-color);
   color: var(--contrast-color);
   margin-left: 8px;
-  width: calc(79% - 6px); 
+  width: 140px;
 }
 
 .navmenu::-webkit-scrollbar,
 .header::-webkit-scrollbar {
   display: none;
+}
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: var(--background-color);
+  border: none;
+  color: var(--nav-color);
+  font-size: 28px;
+  z-index: 1001;
+  cursor: pointer;
+}
+
+.menu-close {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--nav-color);
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1002;
+}
+
+.mobile-overlay {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu-close {
+    display: block;
+  }
+
+  .mobile-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 996;
+  }
+
+  .mobile-overlay.show {
+    display: block;
+  }
+
+  .header {
+    left: -100%;
+    width: 50vw;
+    max-width: 300px;
+    background-color: var(--background-color);
+    padding: 40px 10px;
+    transition: left 0.3s ease;
+  }
+
+  .header.header-show {
+    left: 0;
+    z-index: 997;
+  }
+   .navmenu a span,
+.navmenu a {
+  opacity: 1 !important;
+  visibility: visible !important;
+  width: 80% !important;
+}
+
+.navmenu a:hover,
+.navmenu a.active {
+  width: 80%;
+  background: var(--nav-hover-color);
+  color: var(--contrast-color);
+}
 }

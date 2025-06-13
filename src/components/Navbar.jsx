@@ -1,46 +1,102 @@
-// src/components/Navbar.jsx
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../assets/css/navbar.css';
-
 import {
-  BiMenu, BiX, BiHome, BiUser, BiCodeAlt, BiBook,
-  BiCollection, BiMedal, BiBadgeCheck, BiFileBlank, BiEnvelope
+  BiHome, BiUser, BiCodeAlt, BiBook,
+  BiCollection, BiMedal, BiBadgeCheck, BiFileBlank, BiEnvelope,
+  BiMenu, BiX
 } from 'react-icons/bi';
 
-const Navbar = () => {
-  const [showMenu, setShowMenu] = useState(false);
+const sections = [
+  { id: 'home', icon: <BiHome />, label: 'Home' },
+  { id: 'about', icon: <BiUser />, label: 'About' },
+  { id: 'skills', icon: <BiCodeAlt />, label: 'Skills' },
+  { id: 'education', icon: <BiBook />, label: 'Education' },
+  { id: 'projects', icon: <BiCollection />, label: 'Projects' },
+  { id: 'certifications', icon: <BiBadgeCheck />, label: 'Certifications' },
+  { id: 'publications', icon: <BiFileBlank />, label: 'Publications' },
+  { id: 'achievements', icon: <BiMedal />, label: 'Achievements' },
+  { id: 'contact', icon: <BiEnvelope />, label: 'Contact' },
+];
 
-  const toggleHeader = () => setShowMenu(!showMenu);
+const Navbar = () => {
+  const [activeSection, setActiveSection] = useState('home');
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const headerRef = useRef(null);
 
   const handleAnchorClick = (e, id) => {
     e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setShowMenu(false); // Close menu after click
+      setMobileMenuOpen(false); // close on click
     }
   };
 
-  return (
-    <header id="header" className={`header d-flex flex-column justify-content-center ${showMenu ? 'header-show' : ''}`}>
-      <div className="header-toggle d-xl-none" onClick={toggleHeader}>
-        {showMenu ? <BiX /> : <BiMenu />}
-      </div>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      }, { threshold: 0.6 }
+    );
 
-      <nav id="navmenu" className="navmenu">
-        <ul>
-          <li><a href="#hero" onClick={(e) => handleAnchorClick(e, 'hero')}><BiHome className="navicon" /><span>Home</span></a></li>
-          <li><a href="#about" onClick={(e) => handleAnchorClick(e, 'about')}><BiUser className="navicon" /><span>About</span></a></li>
-          <li><a href="#skills" onClick={(e) => handleAnchorClick(e, 'skills')}><BiCodeAlt className="navicon" /><span>Skills</span></a></li>
-          <li><a href="#education" onClick={(e) => handleAnchorClick(e, 'education')}><BiBook className="navicon" /><span>Education</span></a></li>
-          <li><a href="#projects" onClick={(e) => handleAnchorClick(e, 'projects')}><BiCollection className="navicon" /><span>Projects</span></a></li>
-          <li><a href="#certifications" onClick={(e) => handleAnchorClick(e, 'certifications')}><BiBadgeCheck className="navicon" /><span>Certifications</span></a></li>
-          <li><a href="#publications" onClick={(e) => handleAnchorClick(e, 'publications')}><BiFileBlank className="navicon" /><span>Publications</span></a></li>
-          <li><a href="#achievements" onClick={(e) => handleAnchorClick(e, 'achievements')}><BiMedal className="navicon" /><span>Achievements</span></a></li>
-          <li><a href="#contact" onClick={(e) => handleAnchorClick(e, 'contact')}><BiEnvelope className="navicon" /><span>Contact</span></a></li>
-        </ul>
-      </nav>
-    </header>
+    sections.forEach(section => {
+      const el = document.getElementById(section.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (headerRef.current && !headerRef.current.contains(e.target)) {
+        setMobileMenuOpen(false);
+      }
+    };
+    if (isMobileMenuOpen) {
+      document.addEventListener('mousedown', handleClickOutside);
+    } else {
+      document.removeEventListener('mousedown', handleClickOutside);
+    }
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMobileMenuOpen]);
+
+  return (
+    <>
+      <button className="menu-toggle" onClick={() => setMobileMenuOpen(true)}>
+        <BiMenu />
+      </button>
+
+      <div className={`mobile-overlay ${isMobileMenuOpen ? 'show' : ''}`} />
+
+      <header
+        id="header"
+        ref={headerRef}
+        className={`header d-flex flex-column justify-content-center ${isMobileMenuOpen ? 'header-show' : ''}`}
+      >
+        <button className="menu-close" onClick={() => setMobileMenuOpen(false)}>
+          <BiX />
+        </button>
+        <nav id="navmenu" className="navmenu">
+          <ul>
+            {sections.map(section => (
+              <li key={section.id}>
+                <a
+                  href={`#${section.id}`}
+                  onClick={(e) => handleAnchorClick(e, section.id)}
+                  className={activeSection === section.id ? 'active' : ''}
+                >
+                  {section.icon}
+                  <span>{section.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </header>
+    </>
   );
 };
 
