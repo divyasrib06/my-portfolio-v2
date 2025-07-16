@@ -2,14 +2,15 @@ import React from 'react';
 import '../assets/css/skills.css';
 
 import {
-  FaHtml5, FaCss3Alt, FaJs, FaReact, FaAngular, FaBootstrap,
-  FaNodeJs, FaPhp, FaPython, FaJava, FaDatabase,
-  FaAws, FaGitAlt, FaLinux, FaWindows, FaDocker,
-  FaJenkins, FaGithub
+  FaHtml5, FaCss3Alt, FaJs, FaReact, FaBootstrap,
+  FaNodeJs, FaPython, FaJava, FaAws, FaGitAlt, FaLinux,
+  FaDocker, FaJenkins, FaGithub, FaTerminal
 } from 'react-icons/fa';
+
 import {
-  SiMongodb, SiFirebase, SiKubernetes, SiCplusplus, SiGooglecloud, 
-  SiTensorflow, SiJupyter, SiMysql, SiScikitlearn, SiPandas
+  SiMongodb, SiFastapi, SiDjango, SiTypescript,
+  SiPostgresql, SiRedis, SiGithubactions,
+  SiScikitlearn, SiPandas, SiJupyter, SiMysql
 } from 'react-icons/si';
 
 const skillsData = [
@@ -20,7 +21,6 @@ const skillsData = [
       { name: 'CSS3', icon: <FaCss3Alt />, className: 'css' },
       { name: 'JavaScript', icon: <FaJs />, className: 'js' },
       { name: 'React.js', icon: <FaReact />, className: 'react' },
-      { name: 'Angular', icon: <FaAngular />, className: 'angular' },
       { name: 'Bootstrap', icon: <FaBootstrap />, className: 'bootstrap' }
     ]
   },
@@ -29,7 +29,8 @@ const skillsData = [
     skills: [
       { name: 'Node.js', icon: <FaNodeJs />, className: 'node' },
       { name: 'Express.js', icon: <FaNodeJs />, className: 'node' },
-      { name: 'PHP', icon: <FaPhp />, className: 'php' }
+      { name: 'FastAPI', icon: <SiFastapi />, className: 'fastapi' },
+      { name: 'Django', icon: <SiDjango />, className: 'django' }
     ]
   },
   {
@@ -37,17 +38,18 @@ const skillsData = [
     skills: [
       { name: 'Python', icon: <FaPython />, className: 'python' },
       { name: 'JavaScript', icon: <FaJs />, className: 'js' },
-      { name: 'Java', icon: <FaJava />, className: 'java' },
-      { name: 'C++', icon: <SiCplusplus />, className: 'cpp' },
-      { name: 'C', icon: <FaDatabase />, className: 'c' }
+      { name: 'TypeScript', icon: <SiTypescript />, className: 'typescript' },
+      { name: 'Bash', icon: <FaTerminal />, className: 'bash' },
+      { name: 'Java', icon: <FaJava />, className: 'java' }
     ]
   },
   {
     category: 'Database Technologies',
     skills: [
       { name: 'MySQL', icon: <SiMysql />, className: 'mysql' },
+      { name: 'PostgreSQL', icon: <SiPostgresql />, className: 'postgresql' },
       { name: 'MongoDB', icon: <SiMongodb />, className: 'mongo' },
-      { name: 'Firebase', icon: <SiFirebase />, className: 'firebase' }
+      { name: 'Redis', icon: <SiRedis />, className: 'redis' }
     ]
   },
   {
@@ -55,9 +57,8 @@ const skillsData = [
     skills: [
       { name: 'Docker', icon: <FaDocker />, className: 'docker' },
       { name: 'Jenkins', icon: <FaJenkins />, className: 'jenkins' },
-      { name: 'Kubernetes', icon: <SiKubernetes />, className: 'kube' },
       { name: 'AWS', icon: <FaAws />, className: 'aws' },
-      { name: 'GCP', icon: <SiGooglecloud />, className: 'gcp' }
+      { name: 'GitHub Actions', icon: <SiGithubactions />, className: 'githubactions' }
     ]
   },
   {
@@ -65,8 +66,7 @@ const skillsData = [
     skills: [
       { name: 'Scikit-learn', icon: <SiScikitlearn />, className: 'scikit' },
       { name: 'Pandas', icon: <SiPandas />, className: 'pandas' },
-      { name: 'Jupyter', icon: <SiJupyter />, className: 'jupyter' },
-      { name: 'TensorFlow', icon: <SiTensorflow />, className: 'tensorflow' }
+      { name: 'Jupyter', icon: <SiJupyter />, className: 'jupyter' }
     ]
   },
   {
@@ -74,8 +74,7 @@ const skillsData = [
     skills: [
       { name: 'Git', icon: <FaGitAlt />, className: 'git' },
       { name: 'GitHub', icon: <FaGithub />, className: 'github' },
-      { name: 'Linux', icon: <FaLinux />, className: 'linux' },
-      { name: 'Windows', icon: <FaWindows />, className: 'windows' }
+      { name: 'Linux', icon: <FaLinux />, className: 'linux' }
     ]
   }
 ];

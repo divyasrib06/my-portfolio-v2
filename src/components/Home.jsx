@@ -8,7 +8,7 @@ import '../assets/css/home.css';
 const Home = () => {
   useEffect(() => {
     const typed = new Typed('.typed', {
-      strings: ['Data Analyst , Full Stack Developer, Cloud Enthusiast and Team Player'],
+      strings: [' Full Stack Developer, Software Engineer, Backend Engineer, Data Analyst, Clod Enthusiast '],
       typeSpeed: 100,
       backSpeed: 50,
       backDelay: 2000,

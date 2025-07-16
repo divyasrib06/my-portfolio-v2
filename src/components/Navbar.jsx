@@ -28,7 +28,7 @@ const Navbar = () => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setMobileMenuOpen(false); // close on click
+      setMobileMenuOpen(false);
     }
   };
 
@@ -86,10 +86,10 @@ const Navbar = () => {
                 <a
                   href={`#${section.id}`}
                   onClick={(e) => handleAnchorClick(e, section.id)}
-                  className={activeSection === section.id ? 'active' : ''}
+                  className={`nav-link ${activeSection === section.id ? 'active' : ''}`}
                 >
-                  {section.icon}
-                  <span>{section.label}</span>
+                  <span className="icon">{section.icon}</span>
+                  <span className="label">{section.label}</span>
                 </a>
               </li>
             ))}
@@ -100,4 +100,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Navbar; 
