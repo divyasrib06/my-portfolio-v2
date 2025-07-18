@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import './assets/css/global.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { Analytics } from '@vercel/analytics/react';
 
 // Components
 import Navbar from './components/Navbar';
@@ -43,6 +44,7 @@ const App = () => {
         </Routes>
       </main>
       <Footer />
+      <Analytics />
     </>
   );
 };
