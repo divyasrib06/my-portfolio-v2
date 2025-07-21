@@ -13,7 +13,7 @@ const About = () => {
         <div className="about-text">
           <h2>About Me</h2>
          <p>
-  I'm a results-driven Software Engineer with hands-on experience building scalable web applications using Node.js, Express, React, and TypeScript. I specialize in backend architecture, RESTful APIs, JWT authentication, and real-time systems with WebSockets and Redis. With a strong foundation in full-stack development and a passion for clean, production-ready code, I thrive on solving real-world problems that deliver business value. I'm also skilled in CI/CD workflows, cloud deployment, and cross-functional collaboration.
+I'm a driven developer with hands-on experience in full-stack development, backend systems, and data analysis. I’ve built scalable applications using Node.js, React, and TypeScript, and worked extensively with MySQL and RESTful APIs. I enjoy turning complex problems into simple, clean solutions. I'm currently seeking Software Engineer, Data Analyst, or Full Stack roles where I can grow and contribute meaningful work.
 </p>
           <div className="about-buttons">
             <a href={resumePDF} className="btn" download>Download Resume</a>
